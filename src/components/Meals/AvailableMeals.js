@@ -10,6 +10,10 @@ const AvailableMeals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch("your firebase link.json");
+
+      if (!response.ok) {
+        throw new Error("something went wrong!");
+      }
       const responseData = await response.json();
 
       const loadedMeals = [];
